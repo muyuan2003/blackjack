@@ -1,4 +1,5 @@
-class Player:
+class Hand:
+
     def __init__(self, name):
         self.name = name
         self.sum = 0
@@ -11,6 +12,7 @@ class Player:
     def over21(self):
 
         number_of_aces = 0
+
         for card in self.cards:
             if card.rank == 'Ace':
                 number_of_aces += 1
@@ -27,15 +29,18 @@ class Player:
                 return False
 
     def total_sum(self):
+
         number_of_aces = 0
 
         for card in self.cards:
             if card.rank == 'Ace':
                 number_of_aces += 1
+
         if number_of_aces != 0:
+
             if self.sum > 21:
                 for n in range(number_of_aces):
-                    self.sum - 10
+                    self.sum -= 10
                     if self.sum < 21:
                         break
 
@@ -44,3 +49,6 @@ class Player:
     def reset(self):
         self.sum = 0
         self.cards = []
+
+
+

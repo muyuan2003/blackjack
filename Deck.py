@@ -21,3 +21,10 @@ class Deck:
 
     def deal_one_card(self):
         return self.all_cards.pop()
+
+    def reset(self):
+
+        self.all_cards = []
+        for suit in suits:
+            for rank in ranks:
+                self.all_cards.append(Card(suit, rank, values[rank]))
