@@ -1,5 +1,5 @@
+# Hand class
 class Hand:
-
     def __init__(self, name):
         self.name = name
         self.sum = 0
@@ -10,13 +10,10 @@ class Hand:
         self.sum += new_card.value
 
     def over21(self):
-
         number_of_aces = 0
-
         for card in self.cards:
             if card.rank == 'Ace':
                 number_of_aces += 1
-
         if number_of_aces == 0:
             if self.sum > 21:
                 return True
@@ -29,22 +26,18 @@ class Hand:
                 return False
 
     def total_sum(self):
-
         number_of_aces = 0
-
         for card in self.cards:
             if card.rank == 'Ace':
                 number_of_aces += 1
-
+        temp_sum = self.sum
         if number_of_aces != 0:
-
-            if self.sum > 21:
+            if temp_sum > 21:
                 for n in range(number_of_aces):
-                    self.sum -= 10
-                    if self.sum < 21:
+                    temp_sum -= 10
+                    if temp_sum < 21:
                         break
-
-        return self.sum
+        return temp_sum
 
     def reset(self):
         self.sum = 0
